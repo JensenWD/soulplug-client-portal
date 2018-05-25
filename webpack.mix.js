@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
 
+mix.browserSync({proxy: 'soul-plug.test'});
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +13,16 @@ let mix = require('laravel-mix');
  |
  */
 
+
+mix.scripts([
+    'resources/assets/js/jquery-ui.min.js'
+], 'public/js/all.js').sourceMaps();
+
+mix.styles([
+    'resources/assets/sass/jquery-ui.min.css',
+    'resources/assets/sass/jquery-ui.structure.min.css',
+    'resources/assets/sass/jquery-ui.theme.min.css'
+], 'public/css/all.css');
+
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .sass('resources/assets/sass/custom.sass', 'public/css');

@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300);@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);body h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+body h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+
+body h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+
+body p,
+body li,
+body span,
+body button,
+body i,
+body input,
+body label,
+body a {
+  font-family: "avenir", sans-serif;
+  font-weight: 200;
+}
+
+.login-btn {
+  -webkit-box-shadow: 0px 2px 5px grey;
+  box-shadow: 0px 2px 5px grey;
+  letter-spacing: 5px;
+  padding: 0.65rem;
+  color: white;
+}
+
+.nav-link,
+.navbar-brand {
+  font-family: "Source Sans Pro","HelveticaNeue","Helvetica Neue",sans-serif;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 20px;
+  position: relative;
+  display: inline-block;
+  color: #000 !important;
+  padding: 0 20px !important;
+}
+

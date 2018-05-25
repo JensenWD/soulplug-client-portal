@@ -21,3 +21,16 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Item::class, function (Faker $faker) {
+    $size = ['sm', 'm', 'l', 'xl', '5', '6', '7', '8.5'];
+    $condition = ['used', 'new'];
+    return [
+        'name' => str_random(8),
+        'user_id' => App\User::all()->random()->id,
+        'size' => $size[$faker->numberBetween(0,7)],
+        'condition' => $condition[$faker->numberBetween(0,1)],
+        'range' => '99,130',
+        'dropped_off' => $faker->date()
+    ];
+});
