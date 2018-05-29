@@ -41,4 +41,10 @@ class ItemController extends Controller
 
         return redirect()->back();
     }
+
+    public function delete(Item $item)
+    {
+        $item->delete();
+        return redirect()->back();
+    }
 }

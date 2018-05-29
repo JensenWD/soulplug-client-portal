@@ -27,6 +27,7 @@
                         <th>Range</th>
                         <th>Dropped off</th>
                         <th>Sold on</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                 </table>
@@ -52,7 +53,8 @@
                     {data: 'condition', name: 'condition'},
                     {data: 'range', name: 'range'},
                     {data: 'dropped_off', name: 'dropped_off'},
-                    {data: 'sold_on', name: 'sold_on'}
+                    {data: 'sold_on', name: 'sold_on'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
         });

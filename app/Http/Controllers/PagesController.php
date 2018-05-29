@@ -28,7 +28,11 @@ class PagesController extends Controller
     public function getClientDataTable()
     {
         $items = Item::whereUserId(Auth::user()->id)->orderBy('dropped_off', 'desc');
-        return DataTables::of($items)->make(true);
+        return DataTables::of($items)
+            ->addColumn('action', function ($item) {
+                return '<a href="'. "items/remove/".$item->id .'" class="btn btn-sm btn-outline-dark">Delete</a>';
+            })
+            ->make(true);
     }
 
     public function getAdminItemsDataTable()

@@ -1,12 +1,13 @@
-<div class="col-8 offset-2 border-0">
+<div class="col-12 col-lg-8 offset-lg-2 border-0">
     <div class="card border-0">
-        <div class="card-body">
-            <form method="POST" action="{{ route('login') }}">
+        <div class="card-body p-0">
+            <form class="login-form border col-10 offset-1 col-md-8 offset-md-2 col-xl-6 offset-xl-3" method="POST" action="{{ route('login') }}">
                 @csrf
-
+                <h2 class="text-uppercase">Client portal</h2>
+                <hr>
                 <div class="form-group row">
-                    <label for="email" class="col-8 col-form-label">{{ __('E-Mail Address') }}</label>
-                    <div class="col-8">
+                    <label for="email" class="col-12 col-form-label">{{ __('E-Mail Address') }}</label>
+                    <div class="col-12">
                         <input id="email" type="email"
                                class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                                value="{{ old('email') }}" required autofocus>
@@ -20,8 +21,8 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="password" class="col-8 col-form-label">{{ __('Password') }}</label>
-                    <div class="col-8">
+                    <label for="password" class="col-12 col-form-label">{{ __('Password') }}</label>
+                    <div class="col-12">
                         <input id="password" type="password"
                                class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
                                required>
@@ -34,7 +35,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-md-6 offset-md-4">
+                    <div class="col-md-12">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox"
@@ -45,7 +46,7 @@
                 </div>
 
                 <div class="form-group row mb-0">
-                    <div class="col-12 col-sm-8 offset-sm-2">
+                    <div class="col-12">
                         <button type="submit" class="btn btn-outline-dark col">
                             LOGIN
                         </button>
