@@ -53,3 +53,18 @@ body a {
   padding: 2rem;
 }
 
+.fs-11 {
+  font-size: 11px !important;
+}
+
+#items-table tbody td,
+#users-table tbody td {
+  padding: 5px 4px;
+  font-size: 15px;
+}
+
+#items-table tbody td:nth-child(4),
+#users-table tbody td:nth-child(4) {
+  text-transform: uppercase;
+}
+

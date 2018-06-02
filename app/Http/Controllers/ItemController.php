@@ -14,8 +14,20 @@ class ItemController extends Controller
         $item = Item::findOrFail($request->input('id'));
         $item->update(['sold_on' => $request->input('sold_on')]);
 
-        \Mail::to($item->user()->first())->send(new NotifyCustomerItemSold($item));
+//        \Mail::to($item->user()->first())->send(new NotifyCustomerItemSold($item));
 
+        return redirect()->back();
+    }
+
+    public function approve(Item $item)
+    {
+        $item->update(['approved' => true]);
+        return redirect()->back();
+    }
+
+    public function decline(Item $item)
+    {
+        $item->update(['approved' => false]);
         return redirect()->back();
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\Datatables\DataTables;
@@ -30,7 +31,7 @@ class PagesController extends Controller
         $items = Item::whereUserId(Auth::user()->id)->orderBy('dropped_off', 'desc');
         return DataTables::of($items)
             ->addColumn('action', function ($item) {
-                return '<a href="'. "items/remove/".$item->id .'" class="btn btn-sm btn-outline-dark">Delete</a>';
+                return '<a href="' . "items/remove/" . $item->id . '" class="btn btn-sm btn-outline-dark">Delete</a>';
             })
             ->make(true);
     }
@@ -38,7 +39,23 @@ class PagesController extends Controller
     public function getAdminItemsDataTable()
     {
         $items = Item::with('user');
-        return DataTables::of($items)->make(true);
+        return DataTables::of($items)
+            ->addColumn('action', function ($item) {
+                return '<div class="d-flex"><a href="' . "item/approve/" . $item->id . '" class="btn btn-sm btn-success p-1 fs-11">Accept</a> <a href="' . "item/decline/" . $item->id . '" class="btn btn-sm btn-danger p-1 ml-1 fs-11">Decline</a></div>';
+            })
+            ->editColumn('sold_on', function ($item) {
+                if ($item->sold_on)
+                    return Carbon::parse($item->sold_on)->toFormattedDateString();
+            })
+            ->editColumn('approved', function ($item) {
+                if ($item->approved)
+                    return 'Accepted';
+                if ($item->approved === 0)
+                    return 'Declined';
+                else
+                    return 'pending..';
+            })
+            ->make(true);
     }
 
     public function getAdminUsersDataTable()

@@ -28,17 +28,19 @@
 
         <div class="row">
             <div class="col mt-5 mb-5">
-                <table class="table table-bordered table-hover" id="items-table">
+                <table class="table table-bordered table-responsive table-striped" id="items-table">
                     <thead>
                     <tr>
-                        <th>Product ID</th>
+                        <th>ID</th>
                         <th>Owner</th>
                         <th>Name</th>
                         <th>Size</th>
                         <th>Condition</th>
-                        <th>Range</th>
+                        <th>($)Range</th>
                         <th>Dropped off</th>
-                        <th>Sold on</th>
+                        <th>Sold</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                 </table>
@@ -53,8 +55,8 @@
         </div>
 
         <div class="row">
-            <div class="col mt-5">
-                <table class="table table-bordered table-hover" id="users-table">
+            <div class="col-12 mt-5">
+                <table class="table table-bordered table-hover table-responsive" id="users-table">
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -86,7 +88,9 @@
                     {data: 'condition', name: 'condition'},
                     {data: 'range', name: 'range'},
                     {data: 'dropped_off', name: 'dropped_off'},
-                    {data: 'sold_on', name: 'sold_on'}
+                    {data: 'sold_on', name: 'sold_on'},
+                    {data: 'approved', name: 'approved'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
         });
