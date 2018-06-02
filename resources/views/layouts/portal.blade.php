@@ -18,13 +18,13 @@
 
         <div class="row">
             <div class="col mt-5">
-                <table class="table table-bordered" id="users-table">
+                <table class="table table-bordered table-striped table-responsive" id="users-table">
                     <thead>
-                    <tr>
+                    <tr class="">
                         <th>Name</th>
                         <th>Size</th>
                         <th>Condition</th>
-                        <th>Range</th>
+                        <th>($)Range</th>
                         <th>Dropped off</th>
                         <th>Sold on</th>
                         <th>Action</th>

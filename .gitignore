@@ -31,3 +31,5 @@ public/js/all\.js
 public/js/app\.js
 
 package-lock\.json
+
+public/css/
