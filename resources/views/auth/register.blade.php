@@ -4,19 +4,20 @@
     <div class="container mt-5">
         <div class="row justify-content-center mb-4">
             <div class="col-12 col-lg-7">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                <div class="card border-dark">
+                    <div class="card-header bg-dark text-white">Register</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <div class="form-group row mb-1">
+                                <label for="name"
+                                       class="col-12 offset-lg-2 col-lg-8 col-form-label">{{ __('Name') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-12 offset-lg-2 col-lg-8">
                                     <input id="name" type="text"
-                                           class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                           class="border-dark form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                            name="name" value="{{ old('name') }}" required autofocus>
 
                                     @if ($errors->has('name'))
@@ -27,13 +28,13 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-1">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                       class="col-12 offset-lg-2 col-lg-8 col-form-label">{{ __('E-Mail Address') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-12 offset-lg-2 col-lg-8">
                                     <input id="email" type="email"
-                                           class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                           class="border-dark form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                            name="email" value="{{ old('email') }}" required>
 
                                     @if ($errors->has('email'))
@@ -44,13 +45,97 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <div class="form-group row mb-1">
+                                <label for="addr"
+                                       class="col-12 offset-lg-2 col-lg-8 col-form-label">Address</label>
 
-                                <div class="col-md-6">
+                                <div class="col-12 offset-lg-2 col-lg-8">
+                                    <input type="text" class="border-dark form-control{{ $errors->has('addr') ? ' is-invalid' : '' }}"
+                                           name="addr" value="{{ old('addr') }}" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-1">
+                                <label for="city" class="col-6 col-lg-4 offset-lg-2 col-form-label pr-1">City</label>
+                                <label for="zip" class="col-6 col-lg-4 col-form-label pl-1">Zip</label>
+                                <div class="col-6 col-lg-4 offset-lg-2 pr-1">
+                                    <input type="text" required
+                                           class="border-dark form-control{{ $errors->has('city') ? ' is-invalid' : '' }}"
+                                           name="city" value="{{ old('city') }}">
+                                </div>
+                                <div class="col-6 col-lg-4 pl-1">
+                                    <input type="number" required class="border-dark form-control{{ $errors->has('zip') ? ' is-invalid' : '' }}"
+                                           name="zip" value="{{ old('zip') }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-1">
+                                <label for="state" class="col-6 col-lg-4 offset-lg-2 col-form-label pr-1">State</label>
+                                <div class="col-12 offset-lg-2 col-lg-8">
+                                    <select name="state" required class="custom-select border-dark">
+                                        <option class="text-muted" value="">Make a selection</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="DC">District Of Columbia</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-1">
+                                <label for="password"
+                                       class="border-dark col-12 offset-lg-2 col-lg-8 col-form-label">{{ __('Password') }}</label>
+
+                                <div class="col-12 offset-lg-2 col-lg-8">
                                     <input id="password" type="password"
-                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                           class="border-dark form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                            name="password" required>
 
                                     @if ($errors->has('password'))
@@ -61,25 +146,25 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-1">
                                 <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                       class="col-12 offset-lg-2 col-lg-8 col-form-label">{{ __('Confirm Password') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
+                                <div class="col-12 offset-lg-2 col-lg-8">
+                                    <input id="password-confirm" type="password" class="border-dark form-control"
                                            name="password_confirmation" required>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="form-check-label pl-5 pl-md-3 col-md-6 offset-md-4">
+                            <div class="form-group row mt-3">
+                                <label class="form-check-label col-11 offset-1 offset-lg-2">
                                     <input type="checkbox" class="form-check-input" required value="true">
                                     I agree to the terms & conditions
                                 </label>
                             </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                            <div class="form-group row mb-1 mb-0">
+                                <div class="col-md-10 offset-md-2">
                                     <button type="submit" class="btn btn-outline-dark">
                                         {{ __('Register') }}
                                     </button>
@@ -90,9 +175,8 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-5 offset-lg-0 text-left mt-4 mt-lg-0"
-                 style="max-height: 385px; overflow: auto">
-                <div class="border rounded p-4">
+            <div class="col-12 col-lg-5 offset-lg-0 text-left mt-4 mt-lg-0">
+                <div class="border border-dark rounded p-4" style="max-height: 525px; overflow: auto">
                     <h4 class="font-weight-bold">SOUL PLUG CONSIGNMENT AGREEMENT</h4>
                     <p>
                         <strong>Terms and Conditions</strong>

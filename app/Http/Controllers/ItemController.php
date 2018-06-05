@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Mail\NotifyCustomerItemSold;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,9 +42,13 @@ class ItemController extends Controller
             'priceMax' => 'required'
         ]);
 
+        $user = Auth::user();
         $range = '$' . $request->input('priceMin') . ', $' . $request->input('priceMax');
 
-        Auth::user()->items()->create([
+        if ($request->input('user_email') != null)
+            $user = User::whereEmail($request->input('user_email'))->first();
+
+        $user->items()->create([
             'name' => $request->input('name'),
             'size' => strtoupper($request->input('size')),
             'condition' => $request->input('condition'),

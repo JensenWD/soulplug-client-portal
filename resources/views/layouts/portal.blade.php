@@ -27,6 +27,7 @@
                         <th>($)Range</th>
                         <th>Dropped off</th>
                         <th>Sold on</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -54,6 +55,7 @@
                     {data: 'range', name: 'range'},
                     {data: 'dropped_off', name: 'dropped_off'},
                     {data: 'sold_on', name: 'sold_on'},
+                    {data: 'approved', name: 'approved'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

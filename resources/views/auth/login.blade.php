@@ -1,15 +1,15 @@
-<div class="col-12 col-lg-8 offset-lg-2 border-0">
-    <div class="card border-0">
-        <div class="card-body p-0">
-            <form class="login-form border col-10 offset-1 col-md-8 offset-md-2 col-xl-6 offset-xl-3" method="POST" action="{{ route('login') }}">
+<div class="col-12 p-0 mt-4">
+    <div class="card border rounded border-dark">
+        <div class="card-body border-0 p-0">
+            <form class="login-form col-12" method="POST" action="{{ route('login') }}">
                 @csrf
-                <h2 class="text-uppercase">Client portal</h2>
-                <hr>
+                <h2 class="text-uppercase font-weight-bold mb-0">Client portal login</h2>
+                <hr class="border-dark mt-0 pt-0">
                 <div class="form-group row">
                     <label for="email" class="col-12 col-form-label">{{ __('E-Mail Address') }}</label>
                     <div class="col-12">
                         <input id="email" type="email"
-                               class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                               class="border-dark form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                                value="{{ old('email') }}" required autofocus>
 
                         @if ($errors->has('email'))
@@ -24,7 +24,7 @@
                     <label for="password" class="col-12 col-form-label">{{ __('Password') }}</label>
                     <div class="col-12">
                         <input id="password" type="password"
-                               class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                               class="border-dark form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
                                required>
                         @if ($errors->has('password'))
                             <span class="invalid-feedback">

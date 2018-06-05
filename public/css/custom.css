@@ -1,16 +1,21 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300);@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);body h1 {
-  font-family: "Montserrat", sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);@import url(https://fonts.googleapis.com/css?family=Karla:400,700);body h1 {
+  font-family: "Source Sans Pro", "HelveticaNeue", "Helvetica Neue", sans-serif;
   font-weight: 300;
+  letter-spacing: 2px;
 }
 
 body h2 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Source Sans Pro", "HelveticaNeue", "Helvetica Neue", sans-serif;
   font-weight: 200;
+  letter-spacing: 2px;
 }
 
-body h3 {
-  font-family: "Montserrat", sans-serif;
+body h3,
+body h4,
+body h5 {
+  font-family: "Source Sans Pro", "HelveticaNeue", "Helvetica Neue", sans-serif;
   font-weight: 200;
+  letter-spacing: 2px;
 }
 
 body p,
@@ -20,9 +25,11 @@ body button,
 body i,
 body input,
 body label,
-body a {
-  font-family: "avenir", sans-serif;
-  font-weight: 200;
+body a,
+body div {
+  font-family: "karla", sans-serif !important;
+  font-weight: 400;
+  line-height: 23px;
 }
 
 .login-btn {
@@ -35,7 +42,7 @@ body a {
 
 .nav-link,
 .navbar-brand {
-  font-family: "Source Sans Pro","HelveticaNeue","Helvetica Neue",sans-serif;
+  font-family: "Source Sans Pro", "HelveticaNeue", "Helvetica Neue", sans-serif;
   font-weight: 700;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
@@ -66,5 +73,41 @@ body a {
 #items-table tbody td:nth-child(4),
 #users-table tbody td:nth-child(4) {
   text-transform: uppercase;
+}
+
+#items-table tbody td:nth-child(5),
+#users-table tbody td:nth-child(5) {
+  text-transform: capitalize;
+}
+
+.arrow-right,
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #343a40;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -10px;
+  margin-right: -20px;
+}
+
+.arrow-down {
+  border-right: 20px solid transparent;
+  border-bottom: none;
+  border-top: 20px solid #343a40;
+  border-left: 20px solid transparent;
+  bottom: 0;
+  left: 50%;
+  margin-left: -15px;
+  margin-bottom: -20px;
+  top: initial;
+  right: initial;
+}
+
+th {
+  padding-left: 0.4rem !important;
 }
 

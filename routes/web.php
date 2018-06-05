@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('items/update', 'ItemController@update')->name('update-item');
     Route::get('item/approve/{item}', 'ItemController@approve')->name('approve-item');
     Route::get('item/decline/{item}', 'ItemController@decline')->name('decline-item');
+    Route::get('user/remove/{user}', 'AdminController@removeUser')->name('remove-user');
     Route::get('items/remove/{item}', 'ItemController@delete')->name('delete-item');
 });
 Auth::routes();

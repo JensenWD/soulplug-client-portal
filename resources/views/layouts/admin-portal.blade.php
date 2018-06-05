@@ -14,7 +14,7 @@
 
         <div class="row">
             <div class="col mt-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">Mark item sold
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newItemModal">Mark item sold
                 </button>
             </div>
         </div>
@@ -55,13 +55,25 @@
         </div>
 
         <div class="row">
+            <div class="col-12 col-lg-2 mt-2 mt-lg-4">
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#adminAddItem">Add item for user
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-12 mt-5">
                 <table class="table table-bordered table-hover table-responsive" id="users-table">
                     <thead>
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip</th>
                         <th>Joined</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                 </table>
@@ -71,6 +83,7 @@
 
     <!-- Modal -->
     @include('layouts.partials.mark-sold-modal')
+    @include('layouts.partials.admin-add-item-modal')
 @endsection
 
 @push('scripts')
@@ -103,8 +116,12 @@
                 columns: [
                     { data: 'name', name: 'name' },
                     {data: 'email', name: 'email'},
+                    {data: 'addr', name: 'addr'},
+                    {data: 'city', name: 'city'},
+                    {data: 'state', name: 'state'},
+                    {data: 'zip', name: 'zip'},
                     {data: 'created_at', name: 'created_at'},
-                    // {data: 'condition', name: 'condition'}
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
         });

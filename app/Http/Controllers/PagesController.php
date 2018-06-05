@@ -33,6 +33,22 @@ class PagesController extends Controller
             ->addColumn('action', function ($item) {
                 return '<a href="' . "items/remove/" . $item->id . '" class="btn btn-sm btn-outline-dark">Delete</a>';
             })
+            ->editColumn('sold_on', function ($item) {
+                if ($item->sold_on)
+                    return Carbon::parse($item->sold_on)->toFormattedDateString();
+            })
+            ->editColumn('dropped_off', function ($item) {
+                if ($item->dropped_off)
+                    return Carbon::parse($item->dropped_off)->toFormattedDateString();
+            })
+            ->editColumn('approved', function ($item) {
+                if ($item->approved)
+                    return 'Accepted';
+                if ($item->approved === 0)
+                    return 'Declined';
+                else
+                    return 'pending..';
+            })
             ->make(true);
     }
 
@@ -46,6 +62,10 @@ class PagesController extends Controller
             ->editColumn('sold_on', function ($item) {
                 if ($item->sold_on)
                     return Carbon::parse($item->sold_on)->toFormattedDateString();
+            })
+            ->editColumn('dropped_off', function ($item) {
+                if ($item->dropped_off)
+                    return Carbon::parse($item->dropped_off)->toFormattedDateString();
             })
             ->editColumn('approved', function ($item) {
                 if ($item->approved)
@@ -61,6 +81,13 @@ class PagesController extends Controller
     public function getAdminUsersDataTable()
     {
         $users = User::all();
-        return DataTables::of($users)->make(true);
+        return DataTables::of($users)
+            ->editColumn('created_at', function ($user) {
+                return Carbon::parse($user->created_at)->toFormattedDateString();
+            })
+            ->addColumn('action', function ($user) {
+                return '<div class="d-flex"><a href="' . "user/remove/" . $user->id . '" class="btn btn-sm btn-danger p-1 fs-11">Remove</a>';
+            })
+            ->make(true);
     }
 }
