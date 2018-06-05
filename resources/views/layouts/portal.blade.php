@@ -34,6 +34,15 @@
                 </table>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12 pt-5 mt-5">
+                <p class="text-muted small">If you are shipping your shoes to us make sure to send them to: <br>
+                    <strong>Soul Plug <br>
+                        5030 NE 2nd Ave Suite 406, Miami, FL 33137</strong>
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Modal -->

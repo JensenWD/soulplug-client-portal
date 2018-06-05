@@ -50,7 +50,8 @@
                                        class="col-12 offset-lg-2 col-lg-8 col-form-label">Address</label>
 
                                 <div class="col-12 offset-lg-2 col-lg-8">
-                                    <input type="text" class="border-dark form-control{{ $errors->has('addr') ? ' is-invalid' : '' }}"
+                                    <input type="text"
+                                           class="border-dark form-control{{ $errors->has('addr') ? ' is-invalid' : '' }}"
                                            name="addr" value="{{ old('addr') }}" required>
                                 </div>
                             </div>
@@ -64,7 +65,8 @@
                                            name="city" value="{{ old('city') }}">
                                 </div>
                                 <div class="col-6 col-lg-4 pl-1">
-                                    <input type="number" required class="border-dark form-control{{ $errors->has('zip') ? ' is-invalid' : '' }}"
+                                    <input type="number" required
+                                           class="border-dark form-control{{ $errors->has('zip') ? ' is-invalid' : '' }}"
                                            name="zip" value="{{ old('zip') }}">
                                 </div>
                             </div>
@@ -199,6 +201,13 @@
                         date of the consignment request, then Soul Plug reserves the right to charge the 10% of
                         suggested selling price or $20 per item. In the event that is occurs it will be considered an
                         authentication and appraisal fee.
+                    </p>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <p>If you are shipping your shoes to us make sure to send them to: <br>
+                        <strong>Soul Plug <br>
+                            5030 NE 2nd Ave Suite 406, Miami, FL 33137</strong>
                     </p>
                 </div>
             </div>

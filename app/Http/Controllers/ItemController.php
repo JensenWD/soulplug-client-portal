@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Item;
 use App\Mail\NotifyCustomerItemSold;
 use App\User;
+use Illuminate\Contracts\Support\MessageProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +48,9 @@ class ItemController extends Controller
 
         if ($request->input('user_email') != null)
             $user = User::whereEmail($request->input('user_email'))->first();
+
+//        if ($user == null)
+//            return redirect()->back()->withErrors(MessageProvider::);
 
         $user->items()->create([
             'name' => $request->input('name'),
