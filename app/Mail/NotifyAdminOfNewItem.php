@@ -2,26 +2,26 @@
 
 namespace App\Mail;
 
-use App\Item;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NotifyCustomerItemSold extends Mailable
+class NotifyAdminOfNewItem extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $item;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Item $item)
+    public function __construct(User $user)
     {
-        $this->item = $item;
+        $this->user = $user;
     }
 
     /**
@@ -31,6 +31,6 @@ class NotifyCustomerItemSold extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.cust-itemSold')->subject('Your item was sold at SoulPlug!');
+        return $this->markdown('mail.admin-newItem')->subject($this->user->name . ' has a new item for review');
     }
 }

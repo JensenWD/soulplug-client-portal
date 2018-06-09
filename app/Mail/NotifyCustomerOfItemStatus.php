@@ -2,23 +2,28 @@
 
 namespace App\Mail;
 
+use App\Item;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NotifyAdminOfPriceChange extends Mailable
+class NotifyCustomerOfItemStatus extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $status, $item;
 
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param $status
+     * @param Item $item
      */
-    public function __construct()
+    public function __construct($status, Item $item)
     {
-        //
+        $this->status = $status;
+        $this->item = $item;
     }
 
     /**
@@ -28,6 +33,6 @@ class NotifyAdminOfPriceChange extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('mail.cust-itemStatus')->subject('Your item was ' .  $this->status . ' for consignment');
     }
 }
