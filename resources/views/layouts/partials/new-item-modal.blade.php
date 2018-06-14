@@ -64,7 +64,7 @@
                     <div class="form-group row">
                         <div class="col">
                             <label for="">Date dropped off? (optional)</label>
-                            <input id="dropped_off" type="date" name="dropped_off">
+                            <input id="dropped_off" type="text" name="dropped_off">
                         </div>
                     </div>
 
