@@ -33,14 +33,6 @@ class PagesController extends Controller
             ->addColumn('action', function ($item) {
                 return '<a href="' . "items/remove/" . $item->id . '" class="btn btn-sm btn-outline-dark">Delete</a>';
             })
-            ->editColumn('sold_on', function ($item) {
-                if ($item->sold_on)
-                    return Carbon::parse($item->sold_on)->toFormattedDateString();
-            })
-            ->editColumn('dropped_off', function ($item) {
-                if ($item->dropped_off)
-                    return Carbon::parse($item->dropped_off)->toFormattedDateString();
-            })
             ->editColumn('approved', function ($item) {
                 if ($item->approved)
                     return 'Accepted';
@@ -58,14 +50,6 @@ class PagesController extends Controller
         return DataTables::of($items)
             ->addColumn('action', function ($item) {
                 return '<div class="d-flex"><a href="' . "item/approve/" . $item->id . '" class="btn btn-sm btn-success p-1 fs-11">Accept</a> <a href="' . "item/decline/" . $item->id . '" class="btn btn-sm btn-danger p-1 ml-1 fs-11">Decline</a></div>';
-            })
-            ->editColumn('sold_on', function ($item) {
-                if ($item->sold_on)
-                    return Carbon::parse($item->sold_on)->toFormattedDateString();
-            })
-            ->editColumn('dropped_off', function ($item) {
-                if ($item->dropped_off)
-                    return Carbon::parse($item->dropped_off)->toFormattedDateString();
             })
             ->editColumn('approved', function ($item) {
                 if ($item->approved)

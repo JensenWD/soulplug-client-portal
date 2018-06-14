@@ -1,3 +1,7 @@
+@push('head')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@endpush
+
 <div class="modal fade" id="adminAddItem" tabindex="-1" role="dialog" aria-labelledby="adminAddItem"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -68,7 +72,7 @@
                     <div class="form-group row">
                         <div class="col">
                             <label for="">Date dropped off? (optional)</label>
-                            <input type="date" name="dropped_off">
+                            <input id="dropped_off" type="date" name="dropped_off">
                         </div>
                     </div>
 
@@ -85,3 +89,12 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#dropped_off" ).datepicker();
+        } );
+    </script>
+@endpush
