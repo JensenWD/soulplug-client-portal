@@ -72,7 +72,8 @@
                         <th>City</th>
                         <th>State</th>
                         <th>Zip</th>
-                        <th>Joined</th>
+                        <th>Phone</th>
+                        {{--<th>Joined</th>--}}
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -120,7 +121,8 @@
                     {data: 'city', name: 'city'},
                     {data: 'state', name: 'state'},
                     {data: 'zip', name: 'zip'},
-                    {data: 'created_at', name: 'created_at'},
+                    {data: 'phone', name: 'phone'},
+                    // {data: 'created_at', name: 'created_at'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

@@ -46,7 +46,7 @@ class PagesController extends Controller
 
     public function getAdminItemsDataTable()
     {
-        $items = Item::with('user');
+        $items = Item::with('user')->whereSoldOn(null);
         return DataTables::of($items)
             ->addColumn('action', function ($item) {
                 return '<div class="d-flex"><a href="' . "item/approve/" . $item->id . '" class="btn btn-sm btn-success p-1 fs-11">Accept</a> <a href="' . "item/decline/" . $item->id . '" class="btn btn-sm btn-danger p-1 ml-1 fs-11">Decline</a></div>';

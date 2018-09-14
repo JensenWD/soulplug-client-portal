@@ -12,10 +12,8 @@
                             @csrf
 
                             <div class="form-group row mb-1">
-                                <label for="name"
-                                       class="col-12 offset-lg-2 col-lg-8 col-form-label">{{ __('Name') }}</label>
-
-                                <div class="col-12 offset-lg-2 col-lg-8">
+                                <div class="col-12 col-lg-4 offset-lg-2 pr-1">
+                                    <label for="name" class="col-12 p-0 col-form-label">{{ __('Name') }}</label>
                                     <input id="name" type="text"
                                            class="border-dark form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                            name="name" value="{{ old('name') }}" required autofocus>
@@ -23,6 +21,18 @@
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+
+                                <div class="col-12 col-lg-4 pl-1">
+                                    <label for="phone" class="col-12 p-0 col-form-label">{{ __('Phone') }}</label>
+                                    <input id="phone" type="text" class="border-dark form-control"
+                                           name="phone" value="">
+
+                                    @if ($errors->has('phone'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -197,7 +207,7 @@
                         up unsold items or furnish a shipping label for your items return, or the item can be priced
                         and sold at the sole discretion of the Soul Plug staff. If your items are not picked up, or sold
                         with 60 days of the date on the consignment agreement the items may at that point become
-                        the property of Soul Plug. If your item is removed from consignment before 30 days of the
+                        the property of Soul Plug. If your item is removed from consignment ybefore 30 days of the
                         date of the consignment request, then Soul Plug reserves the right to charge the 10% of
                         suggested selling price or $20 per item. In the event that is occurs it will be considered an
                         authentication and appraisal fee.
