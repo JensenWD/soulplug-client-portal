@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('item/decline/{item}', 'ItemController@decline')->name('decline-item');
     Route::get('user/remove/{user}', 'AdminController@removeUser')->name('remove-user');
     Route::get('items/remove/{item}', 'ItemController@delete')->name('delete-item');
+    Route::get('items', 'ItemController@index')->name('get-items');
+    //Route::post('items', 'ItemController@index')->name('get-items');
 });
 Auth::routes();
 

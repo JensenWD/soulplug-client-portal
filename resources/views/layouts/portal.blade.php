@@ -10,17 +10,15 @@
 
         <div class="row">
             <div class="col mt-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">Add a new
-                    item
-                </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newItemModal">Add a new item</button>
+                <button type="button" class="btn btn-info ml-2" data-toggle="modal" data-target="#updatePriceModal">Update price</button>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col mt-5">
-                <table class="table table-bordered table-striped table-responsive" id="users-table">
+            <div class="col-12 col-lg-10 offset-lg-1 mt-5">
+                <table class="table table-bordered table-striped w-100" id="users-table">
                     <thead>
                     <tr class="">
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Size</th>
                         <th>Condition</th>
@@ -47,6 +45,7 @@
 
     <!-- Modal -->
     @include('layouts.partials.new-item-modal')
+    @include('layouts.partials.update-price-modal')
 @endsection
 
 @push('scripts')
@@ -57,7 +56,7 @@
                 serverSide: true,
                 ajax: '{!! route('client-table') !!}',
                 columns: [
-                    // { data: 'id', name: 'id' },
+                    { data: 'id', name: 'id' },
                     {data: 'name', name: 'name'},
                     {data: 'size', name: 'size'},
                     {data: 'condition', name: 'condition'},

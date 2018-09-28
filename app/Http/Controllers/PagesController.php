@@ -31,7 +31,8 @@ class PagesController extends Controller
         $items = Item::whereUserId(Auth::user()->id)->orderBy('dropped_off', 'desc');
         return DataTables::of($items)
             ->addColumn('action', function ($item) {
-                return '<a href="' . "items/remove/" . $item->id . '" class="btn btn-sm btn-outline-dark">Delete</a>';
+                return '<a href="' . "items/remove/" . $item->id . '" class="btn btn-sm btn-outline-danger">Delete</a>';
+//                    '<a id="' . "updatePrice-" . $item->id . '" href="#/" class="btn ml-2 btn-sm btn-outline-dark">$</a>';
             })
             ->editColumn('approved', function ($item) {
                 if ($item->approved)

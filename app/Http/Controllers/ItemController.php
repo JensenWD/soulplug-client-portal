@@ -16,11 +16,28 @@ class ItemController extends Controller
 {
     public $adminEmail = 'info@soul-plug.com';
 
+    public function index()
+    {
+        $items = Item::whereUserId(Auth::user()->id)->get();
+        return response()->json($items);
+    }
+
     public function update(Request $request)
     {
-        $item = Item::findOrFail($request->input('id'));
-        $item->update(['sold_on' => $request->input('sold_on')]);
-        Mail::to($item->user()->first())->send(new NotifyCustomerItemSold($item));
+        $item = Item::find($request->input('id'));
+        $range = false;
+
+        if($item->exists)
+            return response('Not found', 500);
+
+        if($request->input('priceMin'))
+            $range = '$' . $request->input('priceMin') . ', $' . $request->input('priceMax');
+
+        if($range)
+            $item->update(['range' => $range]);
+        else
+            $item->update($request->all());
+        //Mail::to($item->user()->first())->send(new NotifyCustomerItemSold($item));
 
         return redirect()->back();
     }
