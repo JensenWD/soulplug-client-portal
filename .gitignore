@@ -33,3 +33,7 @@ public/js/app\.js
 package-lock\.json
 
 public/css/
+
+public/
+
+\.env\.example
