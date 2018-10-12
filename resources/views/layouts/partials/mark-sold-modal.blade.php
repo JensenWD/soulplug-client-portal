@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <div class="col">
                             <label for="">Date sold?</label>
-                            <input type="date" required name="sold_on">
+                            <input id="sold_on" type="text" name="sold_on">
                         </div>
                     </div>
 
@@ -35,3 +35,12 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#sold_on" ).datepicker();
+        } );
+    </script>
+@endpush
