@@ -12,7 +12,7 @@
                             @csrf
 
                             <div class="form-group row mb-1">
-                                <div class="col-12 col-lg-4 offset-lg-2 pr-1">
+                                <div class="col-12 col-lg-4 offset-lg-2 pr-lg-1">
                                     <label for="name" class="col-12 p-0 col-form-label">{{ __('Name') }}</label>
                                     <input id="name" type="text"
                                            class="border-dark form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
@@ -25,7 +25,7 @@
                                     @endif
                                 </div>
 
-                                <div class="col-12 col-lg-4 pl-1">
+                                <div class="col-12 col-lg-4 mt-2 mt-lg-0">
                                     <label for="phone" class="col-12 p-0 col-form-label">{{ __('Phone') }}</label>
                                     <input id="phone" type="text" class="border-dark form-control"
                                            name="phone" value="">

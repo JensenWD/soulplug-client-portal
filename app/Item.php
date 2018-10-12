@@ -12,4 +12,14 @@ class Item extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeArchived($query)
+    {
+        return $query->where('archived', true);
+    }
+
+    public function scopeNotArchived($query)
+    {
+        return $query->where('archived', false);
+    }
 }

@@ -13,8 +13,15 @@
                     @csrf
                     <div class="form-group row">
                         <div class="col">
-                            <label for="inputName" class="col-form-label">Item ID</label>
-                            <input type="text" class="form-control" name="id" required placeholder="ID #">
+                            <div class="form-group">
+                                <label for="inputName" class="col-form-label">Item</label>
+                                <select class="custom-select form-control" name="id" required>
+                                    <option disabled value="-1" selected>Select one</option>
+                                    @foreach($items as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
 

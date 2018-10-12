@@ -12,10 +12,15 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col mt-4">
+        <div class="d-flex justify-content-start align-items-center mt-4">
+            <div>
                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newItemModal">Mark item sold
                 </button>
+            </div>
+            <div class="ml-2">
+                <a href="{{ route('admin-archives') }}">
+                    <button type="button" class="btn btn-outline-warning">View archived items</button>
+                </a>
             </div>
         </div>
 
@@ -28,7 +33,7 @@
 
         <div class="row">
             <div class="col mt-5 mb-5">
-                <table class="table table-bordered table-responsive table-striped" id="items-table">
+                <table class="table table-bordered table-hover" id="items-table">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -39,6 +44,7 @@
                         <th>($)Range</th>
                         <th>Dropped off</th>
                         <th>Sold</th>
+                        <th>Paid off</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -63,7 +69,7 @@
 
         <div class="row">
             <div class="col-12 mt-5">
-                <table class="table table-bordered table-hover table-responsive" id="users-table">
+                <table class="table table-bordered table-hover" id="users-table">
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -100,10 +106,11 @@
                     {data: 'name', name: 'name'},
                     {data: 'size', name: 'size'},
                     {data: 'condition', name: 'condition'},
-                    {data: 'range', name: 'range'},
+                    {data: 'range', name: 'range', orderable: true, searchable: false},
                     {data: 'dropped_off', name: 'dropped_off'},
                     {data: 'sold_on', name: 'sold_on'},
-                    {data: 'approved', name: 'approved'},
+                    {data: 'paid_off', name: 'paid_off', orderable: true, searchable: false},
+                    {data: 'approved', name: 'approved', orderable: true, searchable: false},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

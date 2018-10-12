@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Mail\NotifyAdminOfNewItem;
+use App\Mail\NotifyAdminOfPriceChange;
 use App\Mail\NotifyCustomerItemSold;
 use App\Mail\NotifyCustomerOfItemStatus;
 use App\User;
@@ -27,19 +28,24 @@ class ItemController extends Controller
         $item = Item::find($request->input('id'));
         $range = false;
 
-        if($item->exists)
-            return response('Not found', 500);
+        if (!$item)
+            return back()->with('error', 'Item ID #' . $request->input('id') . ' was invalid.');
 
-        if($request->input('priceMin'))
+        if ($request->input('priceMin'))
             $range = '$' . $request->input('priceMin') . ', $' . $request->input('priceMax');
 
-        if($range)
+        if ($range) {
             $item->update(['range' => $range]);
-        else
-            $item->update($request->all());
-        //Mail::to($item->user()->first())->send(new NotifyCustomerItemSold($item));
+            Mail::to($this->adminEmail)->send(new NotifyAdminOfPriceChange($item));
+        } else {
+            $item->update([
+                'sold_on' => $request->input('sold_on'),
+                'paid_off' => false
+            ]);
+            Mail::to($item->user()->first())->send(new NotifyCustomerItemSold($item));
+        }
 
-        return redirect()->back();
+        return back()->with('success', 'Item ' . $item->name . ' was updated');;
     }
 
     public function approve(Item $item)
@@ -51,12 +57,24 @@ class ItemController extends Controller
         return redirect()->back();
     }
 
+    public function archive(Item $item)
+    {
+        $item->update(['archived' => !$item->archived]);
+        return redirect()->back();
+    }
+
     public function decline(Item $item)
     {
         $item->update(['approved' => false]);
         $status = "declined";
         Mail::to($item->user()->first())->send(new NotifyCustomerOfItemStatus($status, $item));
 
+        return redirect()->back();
+    }
+
+    public function togglePaid(Item $item)
+    {
+        $item->update(['paid_off' => !$item->paid_off]);
         return redirect()->back();
     }
 
