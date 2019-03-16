@@ -58,6 +58,9 @@
                     <div class="col-12 text-center mt-2">
                         <a href="{{ route('register') }}">Want to join soul plug nation? Sign up</a>
                     </div>
+                    <div class="col-12 text-center mt-2">
+                        <a href="{{ url('password/reset') }}">Forgot your password?</a>
+                    </div>
                 </div>
             </form>
         </div>
